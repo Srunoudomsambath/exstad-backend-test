@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fontFamilies>
+    <fontFamily name="SFProDisplay">
+
+        <normal>fonts/SF-Pro-Text-Regular.otf</normal>
+        <bold>fonts/SF-Pro-Text-Bold.otf</bold>
+
+        <pdfEncoding><![CDATA[Identity-H]]></pdfEncoding>
+        <pdfEmbedded><![CDATA[true]]></pdfEmbedded>
+    </fontFamily>
+
+    <fontFamily name="Times">
+
+        <normal>fonts/times.ttf</normal>
+        <bold>fonts/times.ttf</bold>
+
+        <pdfEncoding><![CDATA[Identity-H]]></pdfEncoding>
+        <pdfEmbedded><![CDATA[true]]></pdfEmbedded>
+    </fontFamily>
+</fontFamilies>

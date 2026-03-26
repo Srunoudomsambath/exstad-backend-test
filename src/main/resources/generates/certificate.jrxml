@@ -1,0 +1,35 @@
+<!-- Created with Jaspersoft Studio version 7.0.3.final using JasperReports Library version 7.0.3-41034ca841d452f3305ba55b9042260aaa1ab5dd  -->
+<jasperReport name="Certificate_With_Image" language="java" columnCount="1" printOrder="Horizontal" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="842" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="1fedd8d2-f8e0-417a-8066-7c8432ed5c76">
+    <property name="com.jaspersoft.studio.unit." value="pixel"/>
+    <property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+    <property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+    <property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+    <property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+    <property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+    <property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+    <property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+    <property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+    <parameter name="bgImage" class="java.lang.String"/>
+    <parameter name="studentName" class="java.lang.String"/>
+    <query language="sql"><![CDATA[]]></query>
+    <background height="595" splitType="Stretch">
+        <element kind="image" uuid="c731016f-b22b-43dc-90b0-07f515aa8840" x="0" y="0" width="842" height="595" scaleImage="FillFrame">
+            <expression><![CDATA[$P{bgImage}]]></expression>
+            <property name="com.jaspersoft.studio.unit.x" value="px"/>
+            <property name="com.jaspersoft.studio.unit.y" value="px"/>
+            <property name="com.jaspersoft.studio.unit.width" value="px"/>
+            <property name="com.jaspersoft.studio.unit.height" value="px"/>
+        </element>
+        <element kind="textField" uuid="760b861d-82db-438a-8dbf-1ed8c0192fec" mode="Transparent" x="71" y="235" width="700" height="50" forecolor="#2E4895" markup="none" fontName="SFProDisplay" fontSize="27.0" textAdjust="ScaleFont" linkType="None" linkTarget="Self" bold="true" hTextAlign="Center" vTextAlign="Justified">
+            <paragraph lineSpacing="Single" lineSpacingSize="0.0" firstLineIndent="0"/>
+            <expression class="java.lang.String"><![CDATA[
+      $P{studentName} == null ? "" : $P{studentName}.replaceAll("(.)", "$1").trim()
+  ]]></expression>
+<!--            <property name="net.sf.jasperreports.text.spacing.letter" value="5"/>-->
+            <property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+            <property name="com.jaspersoft.studio.unit.y" value="px"/>
+        </element>
+        <property name="com.jaspersoft.studio.unit.height" value="px"/>
+        <property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
+    </background>
+</jasperReport>

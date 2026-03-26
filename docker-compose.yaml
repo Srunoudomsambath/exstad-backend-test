@@ -1,0 +1,34 @@
+services:
+  pg-itp-iam-db:
+    image: postgres:17.5-bullseye
+    container_name: pg-exstad
+    environment:
+      POSTGRES_USER: exstad
+      POSTGRES_PASSWORD: exstad
+      POSTGRES_DB: exstad_db
+    ports:
+      - "16868:5432"
+    volumes:
+      - ./init_scripts/pg_itp_iam_init.sql:/docker-entrypoint-initdb.d/pg_itp_iam_init.sql
+    networks:
+      - itp-net
+  minio:
+    image: minio/minio:latest
+    container_name: minio
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    environment:
+      MINIO_ROOT_USER: admin
+      MINIO_ROOT_PASSWORD: password123
+    volumes:
+      - ./data:/data
+    networks:
+      - itp-net  # Assigning the service to the network
+    command: server --console-address ":9001" /data
+
+
+
+networks:
+  itp-net:
+    external: true
