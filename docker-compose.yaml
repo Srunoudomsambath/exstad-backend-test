@@ -12,6 +12,7 @@ services:
       - ./init_scripts/pg_itp_iam_init.sql:/docker-entrypoint-initdb.d/pg_itp_iam_init.sql
     networks:
       - itp-net
+
   minio:
     image: minio/minio:latest
     container_name: minio
@@ -24,10 +25,28 @@ services:
     volumes:
       - ./data:/data
     networks:
-      - itp-net  # Assigning the service to the network
+      - itp-net
     command: server --console-address ":9001" /data
 
-
+  keycloak:
+    image: quay.io/keycloak/keycloak:26.0.6
+    container_name: keycloak
+    command: start-dev
+    environment:
+      KC_DB: postgres
+      KC_DB_URL: jdbc:postgresql://pg-itp-iam-db:5432/exstad_db
+      KC_DB_USERNAME: exstad
+      KC_DB_PASSWORD: exstad
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+      KC_HOSTNAME_STRICT: false
+      KC_HTTP_ENABLED: true
+    ports:
+      - "8180:8080"
+    depends_on:
+      - pg-itp-iam-db
+    networks:
+      - itp-net
 
 networks:
   itp-net:
